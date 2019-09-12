@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main2.css">
+
+    <title>Unskilled Wolf | Games</title>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/index.html">Unskilled Wolf</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="/games.html">Games</a>
+                <a class="nav-item nav-link" href="/software.html">Software</a>
+                <a class="nav-item nav-link" href="/art.html">Art</a>
+                <a class="nav-item nav-link" href="/about.html">About</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row page">
+            <div class="col">
+                <h1>I create video games</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <span id="cardspace"></span>
+                <!--
+                <div class="row">
+                    <div class="col" style="padding: 0">
+                        <a href="#">
+                            <div class="container-fluid listItem">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <img src="/assets/cardData/img/block.jpg">
+                                    </div>
+                                    <div class="col titlebar" style="text-align: left">
+                                        <h2>Game A</h2>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates obcaecati nihil consequuntur. Corporis, vero dignissimos quas est quisquam officiis asperiores, quos omnis debitis magni numquam, consectetur ad illum inventore sit.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            -->
+            </div>
+        </div>
+    </div>
+
+    <!--Card Script-->
+    <script type="text/javascript">
+        //LoadCard
+        $.getJSON("/assets/cardData/games.json", function (json)
+        {
+            //console.log(json);
+            //Title
+            for (i = 0; i < json.cards.length; i++)
+            {
+                $("#cardspace").append(
+                    `<div class="row">
+                    <div class="col" style="padding: 0">
+                        <a href="${json.cards[i].link}">
+                            <div class="container-fluid listItem">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <img src="${json.cards[i].image}">
+                                    </div>
+                                    <div class="col titlebar" style="text-align: left">
+                                        <h2>${json.cards[i].title}</h2>
+                                        <p>${json.cards[i].description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>`)
+            }
+
+            console.log(`${json.cards.length} cards loaded!`);
+        });
+    </script>
+</body>
+
+</html>
