@@ -1,7 +1,7 @@
 # This is the repository my website
-### [unskilledWolf.github.io](https://unskilledwolf.github.io)\
+### [unskilledwolf.github.io](https://unskilledwolf.github.io)
 
 Made using
-+ Bootsrap
++ Bootstrap
 + JQuerry
-+ Also some thing with npm to make a bootsrtap theme
++ Also something with npm to make a bootstrap theme
