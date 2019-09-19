@@ -106,3 +106,25 @@ ul{
 .listItem:hover .titlebar p{
     opacity: 1;
 }
+
+/*Art*/
+.imgPreviews {
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    background-color: #232c2e;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.imgPreviews .imgLink {
+    margin: 5px 5px 5px 5px;
+    padding: 9px 9px 9px 9px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+    transition: 0.3s;
+    transition-timing-function: ease-out;
+    background-color: #181818;
+}
+.imgPreviews .imgLink:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
