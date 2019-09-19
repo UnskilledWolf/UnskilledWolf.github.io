@@ -50,40 +50,86 @@
                 <p>You can see my art on my <a href="https://deviantart.com/hexagonal192">DeviantArt</a></p>
             </div>
         </div>
+        <div class="row">
+            <div class="container-fluid mt-2 page">
+                <h3>Gallery</h3>
+                <p><i>I can't really upload my things on here, since GitHub has limited space and I don't want to hotlink all my stuff directly into the this page, so have a list of links</i></p>
+                <div class="imgPreviews">
+                    <span id="cardspace"></span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!--Card Script-->
-    <script type="text/javascript">
-        //LoadCard
-        $.getJSON("/assets/cardData/games.json", function (json)
+    <script type="text/JavaScript">
+        $.getJSON("/assets/cardData/art.json", function (json)
         {
-            //console.log(json);
-            //Title
             for (i = 0; i < json.cards.length; i++)
             {
+                // console.log(json.cards[i])
                 $("#cardspace").append(
-                    `<div class="row">
-                    <div class="col" style="padding: 0">
-                        <a href="${json.cards[i].link}">
-                            <div class="container-fluid listItem">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <img src="${json.cards[i].image}">
-                                    </div>
-                                    <div class="col titlebar" style="text-align: left">
-                                        <h2>${json.cards[i].title}</h2>
-                                        <p>${json.cards[i].description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>`)
+                `
+                    <a href="${json.cards[i].link}"><div class="imgLink">
+                        <a class="text-dark" href="${json.cards[i].link}">${json.cards[i].name}</a>
+                        <br>
+                        <a class="text-dark" href="${json.cards[i].direct}"><sub>(Direct)</sub></a>
+                    </div></a>`)
             }
 
             console.log(`${json.cards.length} cards loaded!`);
         });
     </script>
+
+    <!--Here you can see how you don't load content into you website
+    <script type="text/javascript">
+        //LoadCard
+
+        // Store XMLHttpRequest and the JSON file location in variables
+        var xhr = new XMLHttpRequest();
+        const embedURL = "https://backend.deviantart.com/oembed?url=";
+
+        // Called whenever the readyState attribute changes 
+        xhr.onreadystatechange = function ()
+        {
+
+            // Check if fetch request is done
+            if (xhr.readyState == 4 && xhr.status == 200)
+            {
+
+                // Parse the JSON string
+                var jsonData = JSON.parse(xhr.responseText);
+
+                // Call the showArtists(), passing in the parsed JSON string
+                showArtists(jsonData);
+            }
+        };
+
+        // Do the HTTP call using the url variable we specified above
+        // xhr.open("GET", url, true);
+        // xhr.send();
+
+        // Function that formats the string with HTML tags, then outputs the result
+        function showArtists(data)
+        {
+            console.log(data)
+            $("#cardspace").append(
+                `<a href="./artPreview.html?art=${json.cards[i]}"><div class="imgPreview">
+                        <img src="${data.thumbnail_url_200h}" class="rounded" height="133" width="200">
+                        <p class="text-dark">${data.title}</p>
+                    </div>`)
+        }
+
+        $.getJSON("/assets/cardData/art.json", function (json)
+        {
+            for (i = 0; i < json.cards.length; i++)
+            {
+                xhr.open("GET", embedURL + json.cards[i], true);
+                xhr.send();
+            }
+
+            console.log(`${json.cards.length} cards loaded!`);
+        });
+    </script>-->
 </body>
 
 </html>
