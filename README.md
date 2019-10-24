@@ -1,7 +1,4 @@
-# This is the repository my website
+# This is the repository of my website
 ### [unskilledwolf.github.io](https://unskilledwolf.github.io)
 
-Made using
-+ Bootstrap
-+ JQuerry
-+ Also something with npm to make a bootstrap theme
+Uncompiled version here: https://github.com/UnskilledWolf/unskilled-wolf-page-react
