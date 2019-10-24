@@ -1,0 +1,100 @@
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" width="388.84" height="312.93" viewBox="0 0 388.84 312.93">
+  <defs>
+    <style>
+      .cls-1, .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-4, .cls-5, .cls-6, .cls-7 {
+        stroke: #00a3b9;
+      }
+
+      .cls-1, .cls-2, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1 {
+        stroke-width: 5px;
+      }
+
+      .cls-2 {
+        fill: #181818;
+      }
+
+      .cls-2, .cls-6, .cls-7 {
+        stroke-linecap: round;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        fill: #00a3b9;
+      }
+
+      .cls-4 {
+        stroke-width: 0.75px;
+      }
+
+      .cls-7 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <title>sites</title>
+  <rect class="cls-1" x="65.46" y="118.81" width="274.88" height="191.63" rx="15.93"/>
+  <g id="Code">
+    <line class="cls-2" x1="75.83" y1="164.05" x2="193.51" y2="164.05"/>
+    <line class="cls-2" x1="88.1" y1="174.65" x2="219.37" y2="174.65"/>
+    <line class="cls-2" x1="88.1" y1="185.25" x2="205.14" y2="185.25"/>
+    <line class="cls-2" x1="88.1" y1="195.85" x2="217.57" y2="195.85"/>
+    <line class="cls-2" x1="75.83" y1="206.44" x2="191.1" y2="206.44"/>
+    <line class="cls-2" x1="75.83" y1="217.04" x2="224.19" y2="217.04"/>
+    <line class="cls-2" x1="88.1" y1="227.64" x2="219.37" y2="227.64"/>
+    <line class="cls-2" x1="88.1" y1="238.23" x2="217.57" y2="238.23"/>
+    <line class="cls-2" x1="75.83" y1="248.83" x2="202.5" y2="248.83"/>
+    <line class="cls-2" x1="88.1" y1="259.43" x2="215.21" y2="259.43"/>
+    <line class="cls-2" x1="75.83" y1="270.03" x2="210.83" y2="270.03"/>
+  </g>
+  <rect class="cls-3" x="239.73" y="164.05" width="87.3" height="105.97" rx="9.42"/>
+  <rect class="cls-3" x="65.52" y="127.51" width="274.81" height="13.71"/>
+  <rect class="cls-4" x="253.27" y="5.32" width="135.19" height="94.24" rx="15.93"/>
+  <g id="Code-2" data-name="Code">
+    <line class="cls-2" x1="258.38" y1="27.58" x2="316.26" y2="27.58"/>
+    <line class="cls-2" x1="264.41" y1="32.79" x2="328.97" y2="32.79"/>
+    <line class="cls-2" x1="264.41" y1="38" x2="321.98" y2="38"/>
+    <line class="cls-2" x1="264.41" y1="43.21" x2="328.09" y2="43.21"/>
+    <line class="cls-2" x1="258.38" y1="48.42" x2="315.07" y2="48.42"/>
+    <line class="cls-2" x1="258.38" y1="53.64" x2="331.34" y2="53.64"/>
+    <line class="cls-2" x1="264.41" y1="58.85" x2="328.97" y2="58.85"/>
+    <line class="cls-2" x1="264.41" y1="64.06" x2="328.09" y2="64.06"/>
+    <line class="cls-2" x1="258.38" y1="69.27" x2="320.67" y2="69.27"/>
+    <line class="cls-2" x1="264.41" y1="74.48" x2="326.93" y2="74.48"/>
+    <line class="cls-2" x1="258.38" y1="79.69" x2="324.77" y2="79.69"/>
+  </g>
+  <rect class="cls-5" x="338.99" y="27.58" width="42.93" height="52.12" rx="9.42"/>
+  <polyline class="cls-6" points="23.69 1.5 2.56 16.75 23.69 32"/>
+  <polyline class="cls-6" points="41.27 1.5 62.4 16.75 41.27 32"/>
+  <polyline class="cls-6" points="23.69 73.23 2.56 88.49 23.69 103.74"/>
+  <polyline class="cls-6" points="41.27 73.23 62.4 88.49 41.27 103.74"/>
+  <line class="cls-6" x1="23.69" y1="96.87" x2="41.27" y2="80.47"/>
+  <g id="Code-3" data-name="Code">
+    <line class="cls-2" x1="49.4" y1="39.1" x2="123.51" y2="39.1"/>
+    <line class="cls-2" x1="57.12" y1="45.77" x2="139.79" y2="45.77"/>
+    <line class="cls-2" x1="57.12" y1="52.44" x2="130.83" y2="52.44"/>
+    <line class="cls-2" x1="57.12" y1="59.12" x2="138.66" y2="59.12"/>
+    <line class="cls-2" x1="49.4" y1="65.79" x2="121.99" y2="65.79"/>
+    <path class="cls-2" d="M71.71,127.31" transform="translate(-22.31 -54.84)"/>
+    <path class="cls-2" d="M79.44,134" transform="translate(-22.31 -54.84)"/>
+    <path class="cls-2" d="M79.44,140.66" transform="translate(-22.31 -54.84)"/>
+    <path class="cls-2" d="M71.71,147.33" transform="translate(-22.31 -54.84)"/>
+    <path class="cls-2" d="M79.44,154" transform="translate(-22.31 -54.84)"/>
+    <path class="cls-2" d="M71.71,160.68" transform="translate(-22.31 -54.84)"/>
+  </g>
+  <line class="cls-5" x1="338.99" y1="24" x2="338.99" y2="8.3"/>
+  <line class="cls-5" x1="336.26" y1="24" x2="341.4" y2="24"/>
+  <line class="cls-5" x1="336.26" y1="8.3" x2="341.4" y2="8.3"/>
+  <polyline class="cls-5" points="331.34 86.24 331.34 87.62 331.34 89.01"/>
+  <line class="cls-5" x1="338.83" y1="87.62" x2="331.34" y2="87.62"/>
+  <line class="cls-5" x1="338.83" y1="86.24" x2="338.83" y2="89.01"/>
+  <polyline class="cls-7" points="151.66 53.63 162.32 53.63 169.74 61.05 169.74 107.24"/>
+  <polyline class="cls-7" points="239.73 52.44 224.19 52.44 216.5 60.14 216.5 107.24"/>
+</svg>
