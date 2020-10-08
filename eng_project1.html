@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @charset "UTF-8";
+
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            background-color: #cbddcb;
+            color: #1f1f1f;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #60cb33;
+            color: #5c3c2b;
+            position: -webkit-sticky;
+            position: sticky;
+            display: flex;
+            align-items: center;
+            padding: .3rem .1rem;
+            top: 0;
+            width: 100%;
+            height: 1.8rem;
+            box-shadow: 0 5px 7px 2px rgba(0, 0, 0, .09);
+            z-index: 10;
+        }
+
+        .navbar>h1 {
+            margin: 0 0 0 .3rem;
+        }
+
+        .navbar .title {
+            font-size: 1.5rem;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .navbar .link-button {
+            border-left: 2px solid #5c3c2b;
+            padding: 0 3px;
+            cursor: not-allowed !important;
+            transition: color .3s cubic-bezier(.33, 1, .68, 1);
+        }
+
+        .navbar .link-button a {
+            cursor: not-allowed !important;
+            color: #5c3c2b;
+            text-decoration: none;
+            vertical-align: middle;
+            transition: inherit;
+        }
+
+        .navbar .link-button:hover a {
+            color: #a2694b;
+        }
+
+        .content {
+            margin: 0 20vw;
+            background-color: #f7fff9;
+            min-height: 100vh;
+            border-radius: 3px 3px 0 0;
+            overflow-x: hidden;
+        }
+
+        .content .essay {
+            padding: 1rem 3rem 3rem 3rem;
+        }
+
+        .content .essay .text>p {
+            line-height: 1.6;
+        }
+
+        .content .essay .text>p:last-child {
+            margin-bottom: 5rem;
+        }
+
+        .title-container {
+            background-color: #60cb33;
+            color: #cbff98;
+            width: 100%;
+            margin: 0;
+            padding: .1rem .5rem;
+        }
+
+        .title-container h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-family: "Amatic SC", cursive;
+        }
+
+        .sub-title-container {
+            color: #5c3c2b;
+            border-top: .3rem solid #5c3c2b;
+            padding-top: .3rem;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .sub-title-container .svg-container {
+            height: 10rem;
+            width: 10rem;
+        }
+
+        .sub-title-container .text {
+            position: relative;
+            flex-grow: 100;
+        }
+
+        .sub-title-container .text h2 {
+            position: relative;
+            margin: 0;
+            font-size: 2.8rem;
+            top: 50%;
+            transform: translateY(-70%);
+        }
+
+        .sub-title-container .text .description {
+            font-size: .8rem;
+            position: absolute;
+            top: auto;
+            bottom: 0;
+        }
+
+        .sub-title-container .text .description::before,
+        .sub-title-container .text .description::after {
+            content: "—";
+            display: inline-block;
+            background-color: #5c3c2b;
+            color: rgba(0, 0, 0, 0);
+            width: 1.5rem;
+            height: .2rem;
+            vertical-align: middle;
+        }
+
+        .closing-line {
+            display: block;
+            background-color: #5c3c2b;
+            height: .2rem;
+            width: 100%;
+        }
+
+        .cls-1 {
+            fill: #5c3c2b;
+        }
+
+        .cls-2 {
+            fill: none;
+            stroke: #5c3c2b;
+            stroke-miterlimit: 10;
+            stroke-width: 9px;
+        }
+
+        .spacer {
+            flex-grow: 100;
+        }
+
+        .specific {
+            border-top: 2px dashed gray;
+            text-align: center;
+            color: gray;
+            font-size: .8rem;
+            width: 100%;
+        }
+
+        .small-margin {
+            margin-top: .1rem;
+        }
+
+        .content,
+        .sub-title-container,
+        .essay>.text {
+            overflow: show;
+            opacity: 0;
+            -webkit-animation: fade-in .8s cubic-bezier(.33, 1, .68, 1) 0s 1 normal forwards;
+            animation: fade-in .8s cubic-bezier(.33, 1, .68, 1) 0s 1 normal forwards;
+        }
+
+        .content {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+        }
+
+        .sub-title-container {
+            -webkit-animation-delay: .3s;
+            animation-delay: .3s;
+        }
+
+        .essay>.text {
+            -webkit-animation-delay: .5s;
+            animation-delay: .5s;
+        }
+
+        @-webkit-keyframes fade-in {
+            from {
+                transform: translateY(20px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                transform: translateY(20px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        @media only screen and (max-width:780px) {
+            .content {
+                margin: 0 2vw
+            }
+
+            .sub-title-container {
+                display: block
+            }
+
+            .sub-title-container .text {
+                display: inline;
+                position: static
+            }
+
+            .sub-title-container .text h2 {
+                position: static !important;
+                margin: 0;
+                font-size: 2.8rem;
+                transform: none;
+                top: 0
+            }
+
+            .sub-title-container .text .description {
+                position: static;
+                bottom: auto
+            }
+
+            .svg-container {
+                display: none
+            }
+        }
+
+        .inline-img {
+            float: right;
+            height: 11rem;
+            background-color: #cbff98;
+            margin: 0 1rem;
+            padding: .1rem;
+            border-radius: 3px;
+        }
+
+        .inline-img p.text {
+            margin: 0;
+            font-size: .5rem;
+        }
+
+        .inline-img img {
+            height: 10rem;
+        }
+
+        .inline-img.left {
+            float: left;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <title>ENG 101 Blog</title>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h1 class="title">ENG 101</h1>
+        <div class="link-button"><a href="#">Home</a></div>
+        <div class="link-button"><a href="#">Blog</a></div>
+        <div class="link-button"><a href="#">About</a></div>
+        <div class="link-button"><a href="#">Contact</a></div>
+    </div>
+
+    <div class="content">
+        <div class="title-container">
+            <h1>ENG 101 Blog</h1>
+        </div>
+
+        <div class="essay">
+            <div class="sub-title-container">
+                <div class="text">
+                    <h2>How to self-manage</h2>
+                    <div class="description">
+                        Geronimo Pairer • Prof. Kiffen Dosch • ENGL&101 - 2232 • 7 October 2020
+                    </div>
+                </div>
+                <!-- <div class="spacer"></div> -->
+                <div class="svg-container">
+                    <svg id="title-deco" data-name="title-deco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.7 472.7">
+                        <rect class="cls-1" y="424.08792" width="469.23077" height="40.65934" rx="13.18681" />
+                        <rect class="cls-2" x="62.8077" y="185.62638" width="165.42308" height="243.95604" rx="12.08791" />
+                        <rect class="cls-2" x="243.61539" y="152.15385" width="129.12088" height="212.08791" rx="9.89011" />
+                        <rect class="cls-2" x="143.42858" y="13.39561" width="90.03297" height="162.08791" rx="14.28571" />
+                        <rect class="cls-2" x="333.72528" y="2" width="63.18681" height="179.67033" rx="14.01099" />
+                        <rect class="cls-2" x="285.52885" y="23.88275" width="26.64835" height="38.46154" rx="13.32416" />
+                        <rect class="cls-2" x="59.00001" y="114.19781" width="41.20879" height="52.74725" rx="13.46154" />
+                </div>
+            </div>
+            <div class="text">
+                <p>When taking school courses, it is easy to become lost in the many assignments that are always due. That is why it is important to practice good self-management, which is best accomplished with a good strategy. If you perform self-management, you are responsible for planning out your assignments and taking proper actions. In turn, it is much easier and less stressful, to pursue academic and personal goals and dreams. With proper self-management, the daily workload will be less overwhelming and can be solved step by step following a personal schedule. This can help to reduce stress, which is always a great benefit, especially during this pandemic. Overall, self-management is the skill of being able to take purposeful and planned action to reach goals.</p>
+                <p>Developing good self-management can come with some challenges. The main struggle of many people is that self-management is closely tied to self-motivation. This is because even with the best-constructed management plan, it is easy to sit around and do nothing if you are not motivated. On the other hand, if you have the motivation to do work, but have a bad and unmanaged plan, then it will also not turn out well, because it is easy to forget an assignment or miss the due date.</p>
+                <p>Having good self-management is important because it means being responsible for your own doing. First, being able to self-manage will most likely make life less stressful and more productive. For school work in-specific, self-management can help prevent overdue assignments and scrambling to turn in something last minute.</p>
+                <div class="specific">▾ Advice ▾</div>
+                <div class="inline-img left">
+                    <img src="https://pixabay.com/get/54e1d4454856a814f1dc8460da29317e173edce7515975_640.jpg" alt="Image 1">
+                    <p class="text">Image by <a href="https://pixabay.com/users/basti93-169785/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=273857">Bastian Wiedenhaupt</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=273857">Pixabay</a></p>
+                </div>
+                <p class="small-margin">When performing self-management, one basic method, that people often advise, is putting due dates on a digital or physical calendar. Improving on constructing and following a manageable personal schedule can be the key to actually getting work done. A good approach is to not only write down due dates and deadlines but also to add the specific workdays for assignments and planning backup workdays for when the regular planned days are not enough. To have it even more organized, it is useful to color code different types of events. For example, if I have a writing assignment that is due in 5 days, I write down the due date with a red pen or font. Then, I look for a day at least two days ahead of the deadline where it is practical to work on that assignment and mark the assignment there with a green color. In a perfect world, that would work, but there can be a lot of things that could occur that prevent finishing the task on time, so I mark a backup workday in orange sometime before the due date. With this, assignment work time is planned out, and any delay should not cause as much stress, since a slot for backup work is already assigned. However, it is important to not abuse backup days and to always attempt to complete work on the scheduled date.</p>
+                <div class="inline-img">
+                    <img src="https://pixabay.com/get/54e7d64b4f55b10ff3d89960c62e377c143ddfec5657_640.jpg" alt="Image 1">
+                    <p class="text">Image by <a href="https://pixabay.com/users/basti93-169785/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=273857">Bastian Wiedenhaupt</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=273857">Pixabay</a></p>
+                </div>
+                <p>Just recently, this strategy has helped me a lot, in the first week of college. I needed more time than I expected for one assignment, and I also had a lot of live sessions. However, because of the backup times planned for all my homework, I was able to move some of them to a different date, and finish whatever I could that day. If I would not have had that backup, I would have needed to work on the assignment during the night. If I would have done that, I would probably not have done a very good job on the work, and I would have been very tired the next day.</p>
+                <p>Overall, self-management is an important skill to develop. It is the understanding that only you yourself are responsible for creating your own plans and acting to pursue your goals. Especially for academic work, a manageable calendar will cause your days to be less stressful and more productive. A good way of achieving this is to write down a personal schedule of assignments, which includes the due date, workdays, and backup workdays. With that plan, some motivation, and responsibility, school work will become easier manageable and less stressful.</p>
+            </div>
+
+            <div class="closing-line"></div>
+
+            <p>Note: This page may be deleted after December 12th, 2020</p>
+        </div>
+    </div>
+
+</html>
