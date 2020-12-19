@@ -1,4 +1,4 @@
-<svg id="Main" xmlns="http://www.w3.org/2000/svg" width="337.47" height="403.61" viewBox="0 0 337.47 403.61">
+<svg id="Main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 337.47 403.61">
   <defs>
     <style>
       .cls-1 {
@@ -10,7 +10,6 @@
       }
     </style>
   </defs>
-  <title>games</title>
   <g id="Controller">
     <path class="cls-1" d="M165.52,139.12c-7.2-1.48-27.35-3.85-44.36,10.44l-.34-3.88s15.26-13.87,42-12A42.69,42.69,0,0,1,165.52,139.12Z" transform="translate(-49.82 -29.77)"/>
     <path class="cls-1" d="M329.21,145.68l-.34,3.88c-17-14.3-37.17-11.92-44.36-10.44a42,42,0,0,1,2.75-5.4C314,131.81,329.21,145.68,329.21,145.68Z" transform="translate(-49.82 -29.77)"/>
