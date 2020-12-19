@@ -1,32 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.5202c09d.chunk.css",
-    "main.js": "/static/js/main.49e7ab2c.chunk.js",
-    "main.js.map": "/static/js/main.49e7ab2c.chunk.js.map",
+    "main.css": "/static/css/main.b1f5ac65.chunk.css",
+    "main.js": "/static/js/main.29626233.chunk.js",
+    "main.js.map": "/static/js/main.29626233.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5c3e7787.js",
     "runtime-main.js.map": "/static/js/runtime-main.5c3e7787.js.map",
-    "static/css/2.2a86faee.chunk.css": "/static/css/2.2a86faee.chunk.css",
-    "static/js/2.c9e2f568.chunk.js": "/static/js/2.c9e2f568.chunk.js",
-    "static/js/2.c9e2f568.chunk.js.map": "/static/js/2.c9e2f568.chunk.js.map",
+    "static/js/2.effd89d9.chunk.js": "/static/js/2.effd89d9.chunk.js",
+    "static/js/2.effd89d9.chunk.js.map": "/static/js/2.effd89d9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c2eb16f0f80f3c06f8bfc2e5013b59b1.js": "/precache-manifest.c2eb16f0f80f3c06f8bfc2e5013b59b1.js",
+    "precache-manifest.0856d2c0857a8d7dc66bf856252e27b3.js": "/precache-manifest.0856d2c0857a8d7dc66bf856252e27b3.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.2a86faee.chunk.css.map": "/static/css/2.2a86faee.chunk.css.map",
-    "static/css/main.5202c09d.chunk.css.map": "/static/css/main.5202c09d.chunk.css.map",
-    "static/media/ImagePlaceholder.png": "/static/media/ImagePlaceholder.c53c9503.png",
-    "static/media/art.svg": "/static/media/art.b8b514f1.svg",
-    "static/media/games.svg": "/static/media/games.7a63c309.svg",
-    "static/media/index_art.png": "/static/media/index_art.634eac73.png",
-    "static/media/index_code.png": "/static/media/index_code.5326b169.png",
+    "static/css/main.b1f5ac65.chunk.css.map": "/static/css/main.b1f5ac65.chunk.css.map",
+    "static/media/art.svg": "/static/media/art.4aedd254.svg",
+    "static/media/games.svg": "/static/media/games.879f317b.svg",
     "static/media/index_cover_paralax.png": "/static/media/index_cover_paralax.748d108d.png",
-    "static/media/index_games.png": "/static/media/index_games.79bbf63b.png",
-    "static/media/sites.svg": "/static/media/sites.1dc77e35.svg"
+    "static/media/scroll-icon.svg": "/static/media/scroll-icon.2c2b9b4f.svg",
+    "static/media/sites.svg": "/static/media/sites.5b7e456c.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5c3e7787.js",
-    "static/css/2.2a86faee.chunk.css",
-    "static/js/2.c9e2f568.chunk.js",
-    "static/css/main.5202c09d.chunk.css",
-    "static/js/main.49e7ab2c.chunk.js"
+    "static/js/2.effd89d9.chunk.js",
+    "static/css/main.b1f5ac65.chunk.css",
+    "static/js/main.29626233.chunk.js"
   ]
 }
