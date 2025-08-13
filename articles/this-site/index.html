@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+  <title>AxiomWolf</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
+  <link rel="stylesheet" href="/style.css" />
+
+  
+
+
+
+
+</head>
+
+<body>
+  <header>
+    <h1>AxiomWolf</h1>
+    <nav>
+      
+
+      <a href="/"  data-cursor="link">Home</a>
+      <a href="/projects"  data-cursor="link">Projects</a>
+      <a href="/articles" class="active"  data-cursor="link">Articles</a>
+    </nav>
+  </header>
+
+  <div id="nav-cursor"></div>
+
+  <main>
+<section>
+  <h1>ARTICLES</h1>
+  <article>
+    <div class="meta">
+      <div class="top">
+        <div class="primary">
+          <h1>Building This Site</h1>
+          <p>2025-07-05 · 48 words</p>
+        </div>
+        
+      </div>
+      <div class="bottom">
+        
+        <ul class="tags tpoics">
+          <li class="list-title">Topics</li>
+          
+          <li><a href='https://axiomwolf.dev/topic/frontend/'>Frontend</a></li>
+          
+          <li><a href='https://axiomwolf.dev/topic/meta/'>Meta</a></li>
+          
+        </ul>
+        
+        
+        <ul class="tags technology">
+          
+          <li><a href='https://axiomwolf.dev/technology/zolla/'>Zolla</a></li>
+          
+          <li><a href='https://axiomwolf.dev/technology/html-css/'>HTML&amp;CSS</a></li>
+          
+          <li><a href='https://axiomwolf.dev/technology/java-typescript/'>Java&#x2F;TypeScript</a></li>
+          
+          <li class="list-title">Technologies</li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="content" id="primary-content">
+      <p>This is a statically generated site built using <a href="https://www.getzola.org">Zola</a>.</p>
+<span id="continue-reading"></span>
+<p>I initially had various conflicting ideas for what style to use, but this one is Cyberpunk inspired.</p>
+<p>While the layout and style of this Site is pretty much set, I still need to write some articles.</p>
+
+    </div>
+  </article>
+</section>
+</main>
+
+  <footer>&copy; AxiomWolf - Hosted on GitHub Pages</footer>
+
+  <script>
+    const CURSOR = document.getElementById("nav-cursor")
+    const CURSOR_SIZE = 3;
+
+    function setCursor(target)
+    {
+      CURSOR.style.top = (target.offsetTop - CURSOR_SIZE) + "px"
+      CURSOR.style.left = (target.offsetLeft - CURSOR_SIZE) + "px"
+      CURSOR.style.width = (target.offsetWidth + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.height = (target.offsetHeight + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.opacity = 1
+    }
+
+    window.addEventListener("load", e =>
+    {
+      const cursorTargets = Array.from(document.querySelectorAll('*[data-cursor]'))
+
+      cursorTargets.forEach(element => element.addEventListener("mouseover", e => setCursor(e.currentTarget)))
+
+      // Set default position
+      const activeTarget = document.querySelector('nav>a.active')
+      if (activeTarget)
+        setCursor(activeTarget)
+
+      CURSOR.classList.add("ready")
+    })
+
+    window.addEventListener("resize", e => { CURSOR.style.opacity = 0 })
+  </script>
+</body>
+
+</html>

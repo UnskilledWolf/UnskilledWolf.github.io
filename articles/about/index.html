@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+  <title>AxiomWolf</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
+  <link rel="stylesheet" href="/style.css" />
+
+  
+
+
+<script src="/scripts/copyable.js"></script>
+
+
+
+</head>
+
+<body>
+  <header>
+    <h1>AxiomWolf</h1>
+    <nav>
+      
+
+      <a href="/"  data-cursor="link">Home</a>
+      <a href="/projects"  data-cursor="link">Projects</a>
+      <a href="/articles" class="active"  data-cursor="link">Articles</a>
+    </nav>
+  </header>
+
+  <div id="nav-cursor"></div>
+
+  <main>
+<section>
+  <h1>ARTICLES</h1>
+  <article>
+    <div class="meta">
+      <div class="top">
+        <div class="primary">
+          <h1>AxiomWolf</h1>
+          <p>2025-07-05 · 29 words</p>
+        </div>
+        
+      </div>
+      <div class="bottom">
+        
+        <ul class="tags tpoics">
+          <li class="list-title">Topics</li>
+          
+          <li><a href='https://axiomwolf.dev/topic/meta/'>Meta</a></li>
+          
+        </ul>
+        
+        
+      </div>
+    </div>
+    <div class="content" id="primary-content">
+      <p>I sometimes write code on the internet.</p>
+<span id="continue-reading"></span>
+<p>My public folder for <a href="https://www.resonite.com">Resonite</a> is <code class="res-link" data-copyable="line"><span class="proto">resrec:///</span><span class="main">U-1TtGn3kT3bc&#x2F;R-512974D10F6456441FD7FFF05C42BA596DD815841E1918A4F4F5A7C037CFA65E</span></code>.</p>
+<p>This website is still missing some articles.</p>
+
+    </div>
+  </article>
+</section>
+</main>
+
+  <footer>&copy; AxiomWolf - Hosted on GitHub Pages</footer>
+
+  <script>
+    const CURSOR = document.getElementById("nav-cursor")
+    const CURSOR_SIZE = 3;
+
+    function setCursor(target)
+    {
+      CURSOR.style.top = (target.offsetTop - CURSOR_SIZE) + "px"
+      CURSOR.style.left = (target.offsetLeft - CURSOR_SIZE) + "px"
+      CURSOR.style.width = (target.offsetWidth + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.height = (target.offsetHeight + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.opacity = 1
+    }
+
+    window.addEventListener("load", e =>
+    {
+      const cursorTargets = Array.from(document.querySelectorAll('*[data-cursor]'))
+
+      cursorTargets.forEach(element => element.addEventListener("mouseover", e => setCursor(e.currentTarget)))
+
+      // Set default position
+      const activeTarget = document.querySelector('nav>a.active')
+      if (activeTarget)
+        setCursor(activeTarget)
+
+      CURSOR.classList.add("ready")
+    })
+
+    window.addEventListener("resize", e => { CURSOR.style.opacity = 0 })
+  </script>
+</body>
+
+</html>
