@@ -18,24 +18,35 @@
         <loc>https://axiomwolf.dev/projects/</loc>
     </url>
     <url>
+        <loc>https://axiomwolf.dev/projects/interactive-marching-cubes/</loc>
+        <lastmod>2025-07-05</lastmod>
+    </url>
+    <url>
+        <loc>https://axiomwolf.dev/projects/polygon-triangulation/</loc>
+        <lastmod>2025-07-05</lastmod>
+    </url>
+    <url>
         <loc>https://axiomwolf.dev/technology/</loc>
     </url>
     <url>
-        <loc>https://axiomwolf.dev/technology/html-css/</loc>
+        <loc>https://axiomwolf.dev/technology/protoflux/</loc>
     </url>
     <url>
-        <loc>https://axiomwolf.dev/technology/java-typescript/</loc>
-    </url>
-    <url>
-        <loc>https://axiomwolf.dev/technology/zolla/</loc>
+        <loc>https://axiomwolf.dev/technology/web/</loc>
     </url>
     <url>
         <loc>https://axiomwolf.dev/topic/</loc>
     </url>
     <url>
-        <loc>https://axiomwolf.dev/topic/frontend/</loc>
+        <loc>https://axiomwolf.dev/topic/extra/</loc>
     </url>
     <url>
         <loc>https://axiomwolf.dev/topic/meta/</loc>
+    </url>
+    <url>
+        <loc>https://axiomwolf.dev/topic/procedural/</loc>
+    </url>
+    <url>
+        <loc>https://axiomwolf.dev/topic/resonite/</loc>
     </url>
 </urlset>

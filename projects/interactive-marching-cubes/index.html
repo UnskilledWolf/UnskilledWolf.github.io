@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+  <title>AxiomWolf</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
+  <link rel="stylesheet" href="/style.css" />
+
+  
+
+
+<script src="/scripts/copyable.js"></script>
+
+
+<script src="/scripts/dynamic_impulse.js"></script>
+
+
+</head>
+
+<body>
+  <header>
+    <h1>AxiomWolf</h1>
+    <nav>
+      
+
+      <a href="/"  data-cursor="link">Home</a>
+      <a href="/projects" class="active"  data-cursor="link">Projects</a>
+      <a href="/articles"  data-cursor="link">Articles</a>
+    </nav>
+  </header>
+
+  <div id="nav-cursor"></div>
+
+  <main>
+<section>
+  <h1>PROJECTS</h1>
+  <article>
+    <div class="meta">
+      <div class="top">
+        <div class="primary">
+          <h1>Interactive Marching Cubes (MCC25)</h1>
+          <p>2025-07-05 · 642 words</p>
+        </div>
+        
+      </div>
+      <div class="bottom">
+        
+        <ul class="tags tpoics">
+          <li class="list-title">Topics</li>
+          
+          <li><a href='https://axiomwolf.dev/topic/procedural/'>Procedural</a></li>
+          
+          <li><a href='https://axiomwolf.dev/topic/resonite/'>Resonite</a></li>
+          
+        </ul>
+        
+        
+        <ul class="tags technology">
+          
+          <li><a href='https://axiomwolf.dev/technology/protoflux/'>ProtoFlux</a></li>
+          
+          <li class="list-title">Technologies</li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="content" id="primary-content">
+      <p>In this project, I have implemented a live-editable marching cubes algorithm in VR.</p>
+<span id="continue-reading"></span>
+<p>This was my first year contributing to the <a href="https://wiki.resonite.com/MMC">MMC</a>, taking place in <a href="https://resonite.com/">Resonite</a> over the course of February.</p>
+<p>During the idea gathering stage in January, I have had some ideas to expand on my <a href="https://axiomwolf.dev/projects/polygon-triangulation/">polygon triangulation tool</a>. Although I wanted to do something voxel based with greedy meshing at first, I decided, with the help of a friend, that marching cubes would be a simpler approach.</p>
+<p>Although I originally wanted the tool to be used as a sculpting tool, I rand into performance issues even with several optimizations. Due to this, the project was re-structured to become a educational world instead.</p>
+<p>You can visit the <a href="https://go.resonite.com/record/U-1TtGn3kT3bc/R-0a45fd40-3756-4a7c-8829-6317d38e7813">world</a> in Resonite to learn more, or use the tool from <code class="res-link" data-copyable="line"><span class="proto">resrec:///</span><span class="main">U-1TtGn3kT3bc&#x2F;R-BCF190D17FEEBB6CFCB37D11F595E060EA17B4BF094E5D82A3FF037647B4ABFD</span></code>.</p>
+<h1 id="documentation">Documentation</h1>
+<p>Many subsystems of the tool don’t run every update, instead using a timer to only run sometimes. In addition, the marching is set so that it will only march through one chunk per frame. While this causes latency, it helps to keep the FPS more reasonable.</p>
+<h2 id="visuals">Visuals</h2>
+<p>This section handles the visuals for the tool.</p>
+<h3 id="grid">Grid</h3>
+<p>This positions the debug grid.</p>
+<h3 id="datavisual">DataVisual</h3>
+<p>This updates the interior visual of the debug grid.</p>
+<h3 id="radiusvisual">RadiusVisual</h3>
+<p>This drives the size of the draw point as well as moving it towards the tip reference.</p>
+<h2 id="cursor">Cursor</h2>
+<p>This subsystem manages the cursor, allowing the tool to access the proper cell in the data structure.</p>
+<h3 id="position">Position</h3>
+
+<div data-impulse="update_cell_ref:_impulse" class="dynamic-impulse trigger" style='--type-color: #d1fcfc'>
+    <p>update_cell_ref</p>
+</div>
+<p>This keeps track of the integer position of the current cell. Triggers updates on change.</p>
+<h3 id="updatecellref">UpdateCellRef</h3>
+
+<div data-impulse="update_cell_ref:_impulse" class="dynamic-impulse receiver" style='--type-color: #d1fcfc'>
+    <p>update_cell_ref</p>
+</div>
+<p>This handles the logic for updating the current cell.</p>
+<h3 id="createcell">CreateCell</h3>
+
+<div data-impulse="create_cell:int3" class="dynamic-impulse receiver" style='--type-color: #00ff00'>
+    <p>create_cell: <i>int3</i></p>
+</div>
+<p>Creates a new cell slot with the correct name.</p>
+<h3 id="cleanup">Cleanup</h3>
+<p>This cleans up empty cells every 100 updates.</p>
+<h3 id="desktopposition">DesktopPosition</h3>
+<p>This positions the Tip Reference to the center of the desktop's screen when equipped on desktop.</p>
+<h3 id="drawpoint">DrawPoint</h3>
+<p>This positions the drawing point, where new parts of the sculpt are drawn. This is important in the flatten mode, since it locks the point to one plane.</p>
+<h2 id="brush">Brush</h2>
+<p>This handles drawing on the grid.</p>
+<h3 id="draw">Draw</h3>
+<p>This draws, updating the data inside the cells.</p>
+<p>For optimization, the iteration is first limited to only cell ID's that are numerically close to the brush's bounding box. Next, this is further filtered to cells that intersect the actual sphere of effect. Last, all cells within are updated with their new data.</p>
+<h3 id="grow-grid">Grow Grid</h3>
+
+<div data-impulse="create_cell:int3" class="dynamic-impulse trigger" style='--type-color: #00ff00'>
+    <p>create_cell: <i>int3</i></p>
+</div>
+<p>Every 10 updates, this checks if all cells within the brush's bounding box exist. If not, the cell is created.</p>
+<h3 id="quickradius">QuickRadius</h3>
+<p>This allows for desktop users to update the brush radius using their mouse.</p>
+<h2 id="marching">Marching</h2>
+<p>This contains the main marching cube algorithm.</p>
+<h3 id="march">March</h3>
+<p>
+<div data-impulse="march:int3" class="dynamic-impulse receiver" style='--type-color: #00ff00'>
+    <p>march: <i>int3</i></p>
+</div>
+
+<div data-impulse="set_tri:uint" class="dynamic-impulse trigger" style='--type-color: #00e974'>
+    <p>set_tri: <i>uint</i></p>
+</div>
+
+<div data-impulse="set_tri:uint" class="dynamic-impulse receiver" style='--type-color: #00e974'>
+    <p>set_tri: <i>uint</i></p>
+</div></p>
+<p>This performs the marching cubes algorithm on the given cell. It recursively creates triangles based on the correct case.</p>
+<h3 id="schedule">Schedule</h3>
+
+<div data-impulse="march:int3" class="dynamic-impulse trigger" style='--type-color: #00ff00'>
+    <p>march: <i>int3</i></p>
+</div>
+<p>Calls the march function once per frame on a cell that requires updating.</p>
+<h3 id="bakeidle">BakeIdle</h3>
+<p>Bakes cells that weren't updated every 15 seconds.</p>
+<h2 id="management">Management</h2>
+<p>Manages individual sculpts.</p>
+<h3 id="detachsculpt">DetachSculpt</h3>
+
+<div data-impulse="detach_sculpt:_impulse" class="dynamic-impulse trigger" style='--type-color: #d1fcfc'>
+    <p>detach_sculpt</p>
+</div>
+<p>Detaches a sculpt from the tool, removing its references.</p>
+<h3 id="attachsculpt">AttachSculpt</h3>
+
+<div data-impulse="detect_sculpts_callback:Slot" class="dynamic-impulse receiver" style='--type-color: #bfff7f'>
+    <p>detect_sculpts_callback: <i>Slot</i></p>
+</div>
+<p>Attaches a sculpt following a visual process. It broadcasts <code>Word/sculpt_tool_detect_sculpts</code> to all sculpts in the world to determine their locations.</p>
+<h3 id="createsculpt">CreateSculpt</h3>
+<p>
+<div data-impulse="create_sculpt:_impulse" class="dynamic-impulse receiver" style='--type-color: #d1fcfc'>
+    <p>create_sculpt</p>
+</div>
+
+<div data-impulse="create_sculpt_wizard:_impulse" class="dynamic-impulse receiver" style='--type-color: #d1fcfc'>
+    <p>create_sculpt_wizard</p>
+</div></p>
+<p>Manages creating sculpts.</p>
+<h3 id="finalize">Finalize</h3>
+
+<div data-impulse="finalize:_impulse" class="dynamic-impulse receiver" style='--type-color: #d1fcfc'>
+    <p>finalize</p>
+</div>
+<p>Manages finalizing, baking, and detaching the sculpt.</p>
+
+    </div>
+  </article>
+</section>
+</main>
+
+  <footer>&copy; AxiomWolf - Hosted on GitHub Pages</footer>
+
+  <script>
+    const CURSOR = document.getElementById("nav-cursor")
+    const CURSOR_SIZE = 3;
+
+    function setCursor(target)
+    {
+      CURSOR.style.top = (target.offsetTop - CURSOR_SIZE) + "px"
+      CURSOR.style.left = (target.offsetLeft - CURSOR_SIZE) + "px"
+      CURSOR.style.width = (target.offsetWidth + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.height = (target.offsetHeight + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.opacity = 1
+    }
+
+    window.addEventListener("load", e =>
+    {
+      const cursorTargets = Array.from(document.querySelectorAll('*[data-cursor]'))
+
+      cursorTargets.forEach(element => element.addEventListener("mouseover", e => setCursor(e.currentTarget)))
+
+      // Set default position
+      const activeTarget = document.querySelector('nav>a.active')
+      if (activeTarget)
+        setCursor(activeTarget)
+
+      CURSOR.classList.add("ready")
+    })
+
+    window.addEventListener("resize", e => { CURSOR.style.opacity = 0 })
+  </script>
+</body>
+
+</html>

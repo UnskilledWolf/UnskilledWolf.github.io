@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+  <title>AxiomWolf</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
+  <link rel="stylesheet" href="/style.css" />
+
+  
+
+
+
+
+</head>
+
+<body>
+  <header>
+    <h1>AxiomWolf</h1>
+    <nav>
+      
+
+      <a href="/"  data-cursor="link">Home</a>
+      <a href="/projects" class="active"  data-cursor="link">Projects</a>
+      <a href="/articles"  data-cursor="link">Articles</a>
+    </nav>
+  </header>
+
+  <div id="nav-cursor"></div>
+
+  <main>
+<section>
+  <h1>PROJECTS</h1>
+  <article>
+    <div class="meta">
+      <div class="top">
+        <div class="primary">
+          <h1>Polygon Triangulation Tool</h1>
+          <p>2025-07-05 · 389 words</p>
+        </div>
+        
+      </div>
+      <div class="bottom">
+        
+        <ul class="tags tpoics">
+          <li class="list-title">Topics</li>
+          
+          <li><a href='https://axiomwolf.dev/topic/procedural/'>Procedural</a></li>
+          
+          <li><a href='https://axiomwolf.dev/topic/resonite/'>Resonite</a></li>
+          
+        </ul>
+        
+        
+        <ul class="tags technology">
+          
+          <li><a href='https://axiomwolf.dev/technology/protoflux/'>ProtoFlux</a></li>
+          
+          <li class="list-title">Technologies</li>
+        </ul>
+        
+      </div>
+    </div>
+    <div class="content" id="primary-content">
+      <p>One of my first major projects in Resonite was to implement a triangulation algorithm.</p>
+<span id="continue-reading"></span>
+<p>Throughout my use of <a href="https://www.resonite.com">Resonite</a>, I often use procedural meshes, since they not only take up less storage, but are also more convenient to create in VR. However, there is only a limited selection of primitives and other miscellaneous shapes available by default.</p>
+<p>While helping two separate friends on their map making, we ran into the problem of creating organic shapes to fill lakes and rivers. Quads didn't fit, so my first idea was using a built-in convex hull shape. However, they also could not properly fill the shapes and they don't have the UVs required for normal water texture animations.</p>
+<p>This then, is where the idea came from to generate a 2D polygon given as set of points. After a small bit of research, I came across the ear clipping algorithm, which would be able to give me the raw triangles, that I can place for the polygon to be formed.</p>
+<h2 id="protoflux-implementation">ProtoFlux Implementation</h2>
+<p>However, it turns out that implementing this particular algorithm in ProtoFlux was not going to be an easy task. The main problem is that the language (as of 2024/5) does not have support for macros or proper functions with return values! This means that the main algorithm has to be done as one big block of static code. I used an existing <a href="https://github.com/yaugenst/triangulation">Python Implementation</a> as a reference.</p>
+<p>There were some issued with keeping track of all the data the algorithm uses, but with enough wires, that was all possible.</p>
+<p>One particular challenge was to determine if a point is within a triangle. The reference Implementation used some barycentric coordinate conversions to determine this. The problem with that is that the original function is a densely packed mathematical formula. However, ProtoFlux only had nodes. This caused quite a mess of crossing wires and nodes! During debugging of this, I ended up having to make the snippet receive and send web requests to a python server in order to compare with the original.</p>
+<p><img src="https://axiomwolf.dev/projects/polygon-triangulation/InTriangle.jpg" alt="Image of the InTriangle function written in Protoflux. Two main towers of nodes are connected by many wires." /></p>
+<p>Other than this though, the final product is shockingly stable and still one of my favorite things I have created in Essonite!</p>
+
+    </div>
+  </article>
+</section>
+</main>
+
+  <footer>&copy; AxiomWolf - Hosted on GitHub Pages</footer>
+
+  <script>
+    const CURSOR = document.getElementById("nav-cursor")
+    const CURSOR_SIZE = 3;
+
+    function setCursor(target)
+    {
+      CURSOR.style.top = (target.offsetTop - CURSOR_SIZE) + "px"
+      CURSOR.style.left = (target.offsetLeft - CURSOR_SIZE) + "px"
+      CURSOR.style.width = (target.offsetWidth + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.height = (target.offsetHeight + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.opacity = 1
+    }
+
+    window.addEventListener("load", e =>
+    {
+      const cursorTargets = Array.from(document.querySelectorAll('*[data-cursor]'))
+
+      cursorTargets.forEach(element => element.addEventListener("mouseover", e => setCursor(e.currentTarget)))
+
+      // Set default position
+      const activeTarget = document.querySelector('nav>a.active')
+      if (activeTarget)
+        setCursor(activeTarget)
+
+      CURSOR.classList.add("ready")
+    })
+
+    window.addEventListener("resize", e => { CURSOR.style.opacity = 0 })
+  </script>
+</body>
+
+</html>
