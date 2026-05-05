@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+  <title>AxiomWolf</title>
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
+  <link rel="stylesheet" href="/style.css" />
+
+  
+
+
+
+
+</head>
+
+<body>
+  <header>
+    <h1>AxiomWolf</h1>
+    <nav>
+      
+
+      <a href="/"  data-cursor="link">Home</a>
+      <a href="/projects"  data-cursor="link">Projects</a>
+      <a href="/articles" class="active"  data-cursor="link">Articles</a>
+    </nav>
+  </header>
+
+  <div id="nav-cursor"></div>
+
+  <main>
+<section>
+  <h1>ARTICLES</h1>
+  <article>
+    <div class="meta">
+      <div class="top">
+        <div class="primary">
+          <h1>Emmisive Color Masks</h1>
+          <p>2026-05-06 · 400 words</p>
+        </div>
+        
+      </div>
+      <div class="bottom">
+        
+        <ul class="tags tpoics">
+          <li class="list-title">Topics</li>
+          
+          <li><a href='https://axiomwolf.dev/topic/resonite/'>Resonite</a></li>
+          
+        </ul>
+        
+        
+      </div>
+    </div>
+    <div class="content" id="primary-content">
+      <blockquote>
+<p>This is a bit of a WIP article written quickly for now
+I'll improve it soon-ish</p>
+</blockquote>
+<h1 id="using-the-material">Using the Material</h1>
+<p><a rel="external" href="https://wiki.resonite.com/Component:PBS_ColorMaskMetallic">Color Mask Metallic</a> is (as far as I know) the only way to have separate color zones without doing camera tricks.</p>
+<p>I have my Moontail's setup here. The ColorMask controls where on the texture each color zone is applied. With zone 0 being R to zone 3 being the alpha channel.
+<img src="https://axiomwolf.dev/articles/emmisive-color-masks/alcali_mane_material.jpg" alt="Image of a worker inspector showing the a PBS_ColorMaskMetallic material." /></p>
+<p>The Albedo of all the zones is white, so that it just uses the original texture, and the emissives are the actual colors it should use. The B/W emissive mask is just to limit where the glow comes from.</p>
+<h1 id="colormap-quirks">ColorMap Quirks</h1>
+<p>There are a few quirks with the ColorMask:</p>
+<ol>
+<li>First, you can see that it looks almost blank, but that is because the most of the colors are in the area where alpha is 0.</li>
+<li>Second, the tints of the colors are normalized in a weird way when they overlap. This is usually fine for this use though.</li>
+<li>Last, if all channels are 0, the output is just black.</li>
+</ol>
+<h1 id="creating-the-colormap">Creating the ColorMap</h1>
+<p>The ColorMap is a bit tricky to create, because it is likely that a lot of it will be "hidden" in areas with 0 alpha.</p>
+<h2 id="blender-nodes">Blender Nodes</h2>
+<p>In my case, I just needed the color mask to give smoothly transitioning zones from left to right. For this, I made a node group that maps the object's X coordinates to a color ramp.
+I then bake both images separately as emissives.
+<img src="https://axiomwolf.dev/articles/emmisive-color-masks/blender.jpg" alt="Image of the blender nodes for this setip. Texture Coordinate into Seperate XYZ into MultiplyAdd into ColorRamp." /></p>
+<h2 id="combining-the-masks">Combining the Masks</h2>
+<p>To combine the masks, just I just apply the alpha mask as the actual alpha channel of the image.</p>
+<p>I usually use the <a rel="external" href="https://www.gimp.org/">GNU Image Manipulation Program</a>. There, the color compose and decompose tools can be used. <strong>When saving the resulting PDF, it is important to check the "Save color values from transparent pixels" option.</strong></p>
+<p>Another alternative is to use the <a rel="external" href="https://rixx-vr.github.io/pbs_texture_merger/">PBS Texture Merger</a> site, to add the opacity map.</p>
+<p>Last, in my case, I made a python script for this, so that I can properly configure all my avatar's textures in batch.</p>
+<p><img src="https://axiomwolf.dev/articles/emmisive-color-masks/masks.jpg" alt="Image of the flies of both masks created." /></p>
+
+    </div>
+  </article>
+</section>
+</main>
+
+  <footer>&copy; AxiomWolf - Hosted on GitHub Pages</footer>
+
+  <script>
+    const CURSOR = document.getElementById("nav-cursor")
+    const CURSOR_SIZE = 3;
+
+    function setCursor(target)
+    {
+      CURSOR.style.top = (target.offsetTop - CURSOR_SIZE) + "px"
+      CURSOR.style.left = (target.offsetLeft - CURSOR_SIZE) + "px"
+      CURSOR.style.width = (target.offsetWidth + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.height = (target.offsetHeight + CURSOR_SIZE * 2) + "px"
+      CURSOR.style.opacity = 1
+    }
+
+    window.addEventListener("load", e =>
+    {
+      const cursorTargets = Array.from(document.querySelectorAll('*[data-cursor]'))
+
+      cursorTargets.forEach(element => element.addEventListener("mouseover", e => setCursor(e.currentTarget)))
+
+      // Set default position
+      const activeTarget = document.querySelector('nav>a.active')
+      if (activeTarget)
+        setCursor(activeTarget)
+
+      CURSOR.classList.add("ready")
+    })
+
+    window.addEventListener("resize", e => { CURSOR.style.opacity = 0 })
+  </script>
+</body>
+
+</html>
