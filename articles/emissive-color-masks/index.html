@@ -39,7 +39,7 @@
     <div class="meta">
       <div class="top">
         <div class="primary">
-          <h1>Emmisive Color Masks</h1>
+          <h1>Emissive Color Masks</h1>
           <p>2026-05-06 · 400 words</p>
         </div>
         
@@ -64,7 +64,7 @@ I'll improve it soon-ish</p>
 <h1 id="using-the-material">Using the Material</h1>
 <p><a rel="external" href="https://wiki.resonite.com/Component:PBS_ColorMaskMetallic">Color Mask Metallic</a> is (as far as I know) the only way to have separate color zones without doing camera tricks.</p>
 <p>I have my Moontail's setup here. The ColorMask controls where on the texture each color zone is applied. With zone 0 being R to zone 3 being the alpha channel.
-<img src="https://axiomwolf.dev/articles/emmisive-color-masks/alcali_mane_material.jpg" alt="Image of a worker inspector showing the a PBS_ColorMaskMetallic material." /></p>
+<img src="https://axiomwolf.dev/articles/emissive-color-masks/alcali_mane_material.jpg" alt="Image of a worker inspector showing the a PBS_ColorMaskMetallic material." /></p>
 <p>The Albedo of all the zones is white, so that it just uses the original texture, and the emissives are the actual colors it should use. The B/W emissive mask is just to limit where the glow comes from.</p>
 <h1 id="colormap-quirks">ColorMap Quirks</h1>
 <p>There are a few quirks with the ColorMask:</p>
@@ -78,13 +78,13 @@ I'll improve it soon-ish</p>
 <h2 id="blender-nodes">Blender Nodes</h2>
 <p>In my case, I just needed the color mask to give smoothly transitioning zones from left to right. For this, I made a node group that maps the object's X coordinates to a color ramp.
 I then bake both images separately as emissives.
-<img src="https://axiomwolf.dev/articles/emmisive-color-masks/blender.jpg" alt="Image of the blender nodes for this setip. Texture Coordinate into Seperate XYZ into MultiplyAdd into ColorRamp." /></p>
+<img src="https://axiomwolf.dev/articles/emissive-color-masks/blender.jpg" alt="Image of the blender nodes for this setip. Texture Coordinate into Seperate XYZ into MultiplyAdd into ColorRamp." /></p>
 <h2 id="combining-the-masks">Combining the Masks</h2>
 <p>To combine the masks, just I just apply the alpha mask as the actual alpha channel of the image.</p>
 <p>I usually use the <a rel="external" href="https://www.gimp.org/">GNU Image Manipulation Program</a>. There, the color compose and decompose tools can be used. <strong>When saving the resulting PDF, it is important to check the "Save color values from transparent pixels" option.</strong></p>
 <p>Another alternative is to use the <a rel="external" href="https://rixx-vr.github.io/pbs_texture_merger/">PBS Texture Merger</a> site, to add the opacity map.</p>
 <p>Last, in my case, I made a python script for this, so that I can properly configure all my avatar's textures in batch.</p>
-<p><img src="https://axiomwolf.dev/articles/emmisive-color-masks/masks.jpg" alt="Image of the flies of both masks created." /></p>
+<p><img src="https://axiomwolf.dev/articles/emissive-color-masks/masks.jpg" alt="Image of the flies of both masks created." /></p>
 
     </div>
   </article>
